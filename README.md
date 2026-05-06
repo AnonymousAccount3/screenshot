@@ -1,3 +1,5 @@
+
+
 # ScreenShot
 
 Source code, pretrained models, evaluation data, and interactive dashboard for reproducing the experiments.
@@ -6,7 +8,7 @@ Source code, pretrained models, evaluation data, and interactive dashboard for r
 
 Upload any drug screening dataset, run real-time inference, and explore dose-response predictions, hit detection analytics, and combination response surfaces.
 
-https://github.com/AnonymousAccount3/screenshot/raw/main/demo.mp4
+<video src="https://github.com/user-attachments/assets/73565278-021e-4bc7-a764-af4437c6d038" autoplay loop muted playsinline></video>
 
 See [Dashboard setup](#dashboard-setup) for instructions.
 
