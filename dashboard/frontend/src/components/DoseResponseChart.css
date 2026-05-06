@@ -1,0 +1,46 @@
+.dose-response-chart-container {
+  min-width: 0;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-xs);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.dose-response-chart-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.chart-title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  margin-bottom: var(--space-1);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.prediction-curve {
+  pointer-events: none;
+}
+
+.x-axis-label,
+.y-axis-label {
+  fill: var(--text-secondary);
+}
+
+.x-axis .tick text,
+.y-axis .tick text {
+  font-size: 10px;
+  fill: var(--text-secondary);
+}
+
+.x-axis .domain,
+.x-axis .tick line,
+.y-axis .domain,
+.y-axis .tick line {
+  stroke: var(--color-neutral-200);
+}

@@ -1,0 +1,61 @@
+morgan:
+  radius: 2
+  n_bits: 512
+
+screenshot:
+  device: "cuda"
+  batch_size: 128
+
+mlp:
+  device: "cuda"
+  embedding_dim: 64
+  hidden_dim: 128
+  n_layers: 3
+  dropout: 0.2
+  activation: "relu"
+  num_epochs: 200
+  batch_size: 32
+  lr: 0.001
+  weight_decay: 0.0
+  gradient_clip: 1.0
+  iterations_per_epoch: 100
+  val_ratio: 0.2
+
+mlp_finetuned:
+  device: "cuda"
+  drug_vocab_size: 7000
+  sample_vocab_size: 7000
+  embedding_dim: 64
+  hidden_dim: 128
+  n_layers: 3
+  dropout: 0.2
+  activation: "relu"
+  num_epochs: 200
+  batch_size: 32
+  lr: 0.0001
+  weight_decay: 0.0
+  gradient_clip: 1.0
+  iterations_per_epoch: 100
+  val_ratio: 0.2
+
+xgboost:
+  objective: "reg:squarederror"
+  n_estimators: 100
+  seed: 42
+  cv_folds: 5
+  n_jobs: -1
+  param_grid:
+    max_depth: [2, 4, 6]
+    learning_rate: [0.05, 0.1, 0.3]
+    subsample: [0.7, 0.9, 1.0]
+    min_child_weight: [1, 5, 10]
+    reg_lambda: [0.1, 1.0, 10.0]
+
+tabpfn:
+  device: "cuda"
+
+hit_recall_k_pct: 0.20
+
+n_few_shots: [10, 50, 100, 150, 200, 250, 300]
+random_states: [42, 123, 456, 789, 1024]
+output_dir: ../results/few_shot

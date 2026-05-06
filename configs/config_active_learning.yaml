@@ -1,0 +1,23 @@
+budgets: [100, 200, 300]
+random_states: [42, 123, 456, 789, 1024]
+output_dir: ../results/active_learning
+hit_recall_k_pct: 0.20
+
+methods:
+  - name: "random"
+    batch1: {embedding: dd, weight: uniform, selector: random}
+
+  - name: "cold-start"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+
+  - name: "adaptive_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "adaptive_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2

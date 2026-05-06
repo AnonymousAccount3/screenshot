@@ -1,0 +1,13 @@
+data:
+  n_drugs: 3
+  min_dose_val: -6.0
+  max_dose_val: 4.0
+  drug_library: "../models/model_gdsc_sq/"
+  control_samples: ["MDA-MB-157"]
+  dose_agg: "min"
+
+screenshot:
+  model_path: "../models/model_gdsc_sq/final_model/"
+
+mlp_finetuned:
+  checkpoint: "../models/mlp_gdsc_sq/best_model.pt"

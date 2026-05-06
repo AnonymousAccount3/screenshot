@@ -1,0 +1,13 @@
+data:
+  n_drugs: 3
+  min_dose_val: -6.0
+  max_dose_val: 4.0
+  drug_library: "../models/model_batchie/"
+  control_samples: ["HCI-011"]
+  dose_agg: "mean"
+
+screenshot:
+  model_path: "../models/model_batchie/final_model/"
+
+mlp_finetuned:
+  checkpoint: "../models/mlp_batchie/best_model.pt"

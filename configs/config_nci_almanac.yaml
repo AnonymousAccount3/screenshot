@@ -1,0 +1,13 @@
+data:
+  n_drugs: 3
+  min_dose_val: -6.0
+  max_dose_val: 4.0
+  drug_library: "../models/model_nci_almanac/"
+  control_samples: ["UACC-257"]
+  dose_agg: "min"
+
+screenshot:
+  model_path: "../models/model_nci_almanac/final_model/"
+
+mlp_finetuned:
+  checkpoint: "../models/mlp_nci_almanac/best_model.pt"

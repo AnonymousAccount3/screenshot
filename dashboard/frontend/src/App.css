@@ -1,0 +1,76 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-page);
+}
+
+/* ── Header ──────────────────────────────── */
+
+.app-header {
+  padding: var(--space-4) var(--space-8);
+  background: var(--surface-card);
+  border-top: 3px solid var(--color-brand-500);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-xs);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.app-header p {
+  margin: 2px 0 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-normal);
+}
+
+/* ── Vivid Toggle ────────────────────────── */
+
+.vivid-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vivid-toggle-track {
+  display: inline-flex;
+  align-items: center;
+  width: 36px;
+  height: 20px;
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-300);
+  padding: 2px;
+  transition: background var(--transition-fast);
+}
+
+.vivid-toggle-track.active {
+  background: var(--color-brand-500);
+}
+
+.vivid-toggle-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-fast);
+}
+
+.vivid-toggle-track.active .vivid-toggle-thumb {
+  transform: translateX(16px);
+}
+
+/* ── Main ────────────────────────────────── */
+
+.app-main {
+  flex: 1;
+  padding: var(--space-6) var(--space-8);
+  width: 100%;
+}

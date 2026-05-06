@@ -1,0 +1,122 @@
+budgets: [100, 200, 300]
+random_states: [42, 123, 456, 789, 1024]
+output_dir: ../results/active_learning/ablation
+hit_recall_k_pct: 0.20
+
+methods:
+  # --- Standard (our method) ---
+  - name: "standard_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "standard_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2
+
+  # --- Ablation: replace k-means++ with k-medoids ---
+  - name: "no-kmeanspp_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: delta, selector: kmedoids}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "no-kmeanspp_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: delta, selector: kmedoids}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2
+
+  # --- Ablation: remove delta weighting ---
+  - name: "no-delta_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: uniform, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "no-delta_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: uniform, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2
+
+  # --- Ablation: use drug-dose embeddings instead of final ---
+  - name: "no-final_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: dd, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "no-final_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: dd, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2
+
+  # --- Ablation: k-means++ cold start instead of k-medoids ---
+  - name: "kmeanspp-start_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmeanspp}
+    adaptive: {embedding: final, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "kmeanspp-start_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmeanspp}
+    adaptive: {embedding: final, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2
+
+  # --- Ablation: random cold start ---
+  - name: "random-start_r1"
+    batch1: {embedding: dd, weight: uniform, selector: random}
+    adaptive: {embedding: final, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "random-start_r2"
+    batch1: {embedding: dd, weight: uniform, selector: random}
+    adaptive: {embedding: final, weight: delta, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2
+
+  # --- Ablation: uncertainty weighting instead of delta ---
+  - name: "uncertainty_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: uncertainty, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "uncertainty_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: final, weight: uncertainty, selector: kmeanspp}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2
+
+  # --- Ablation: greedy top-uncertainty ---
+  - name: "top-uncertainty_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: dd, weight: uniform, selector: top_uncertainty}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "top-uncertainty_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: dd, weight: uniform, selector: top_uncertainty}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2
+
+  # --- Ablation: greedy top-delta ---
+  - name: "top-delta_r1"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: dd, weight: uniform, selector: top_delta}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 1
+
+  - name: "top-delta_r2"
+    batch1: {embedding: dd, weight: uniform, selector: kmedoids}
+    adaptive: {embedding: dd, weight: uniform, selector: top_delta}
+    proportion_cold_start: 0.33
+    n_adaptive_rounds: 2

@@ -1,0 +1,8 @@
+{
+  "graph_file": "drug_graph.json",
+  "remap_file": "drug_id_remap.csv",
+  "drugs_file": "all_drugs.csv",
+  "pubchem_cache_dir": null,
+  "use_local_pubchem": false,
+  "use_pubchem_api": true
+}
