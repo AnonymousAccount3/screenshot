@@ -6,7 +6,7 @@ Source code, pretrained models, evaluation data, and interactive dashboard for r
 
 Upload any drug screening dataset, run real-time inference, and explore dose-response predictions, hit detection analytics, and combination response surfaces.
 
-https://github.com/user-attachments/assets/demo.mp4
+https://github.com/AnonymousAccount3/screenshot/raw/main/demo.mp4
 
 See [Dashboard setup](#dashboard-setup) for instructions.
 
