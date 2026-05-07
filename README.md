@@ -15,6 +15,8 @@ See [Dashboard setup](#dashboard-setup) for instructions.
 ## Setup
 
 ```bash
+# Requires Python 3.11 or higher
+
 # Option 1: venv
 python -m venv venv
 source venv/bin/activate
